@@ -14,10 +14,6 @@ import requests
 import re
 from datetime import datetime,timedelta
 
-class LoginViewSet(viewsets.ViewSet):
-
-    def list(self,request):
-        return render(request,"scraper/login.html")
 
 
 class ScraperViewSet(viewsets.ViewSet):
@@ -53,3 +49,12 @@ class ScraperViewSet(viewsets.ViewSet):
         r = requests.get(one_week_url,headers=headers)
         issues_week_count = len(r.json())
         return Response({"status":r.status_code,"data":{"open issues":issues_open,"1 day old":issues_day_count,"week old":issues_week_count,"Older":issues_open-issues_week_count}})
+
+
+class LoginViewSet(viewsets.ViewSet):
+
+    def list(self,request):
+        return render(request,"login.html")
+
+    def post(self,request):
+        print request.data

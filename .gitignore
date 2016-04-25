@@ -1,4 +1,4 @@
 #Ignoring pyc files
-.pyc
+*.pyc
 #Ignoring directory created by pycharm
 .idea/

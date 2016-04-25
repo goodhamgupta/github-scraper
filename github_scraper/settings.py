@@ -55,6 +55,12 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'github_scraper.urls'
 PROJECT_DIR=os.path.dirname(__file__)
 STATIC_ROOT= os.path.join(PROJECT_DIR,'static/')
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
+TEMPLATE_DIRS = (
+    PROJECT_PATH + '/templates/',
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
