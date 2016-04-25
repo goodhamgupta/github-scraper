@@ -66,6 +66,9 @@ def login(request):
         '''
         Perform authentication here
         '''
+        print "Inside"
+        print request.body
+        print request.data
         return redirect('/search')
 def post(request):
     print "Hello"
