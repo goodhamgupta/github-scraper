@@ -12,6 +12,7 @@ from scraper import views
 urlpatterns = [
     # ex: /polls/
     url(r'^login/$', views.login, name='index'),
+    url(r'^search/$', views.search, name='searh'),
     # ex: /polls/5/
     ]
 
