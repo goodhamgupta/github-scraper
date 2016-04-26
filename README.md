@@ -27,6 +27,19 @@ $ virtualenv scraper_env
 $ cd scraper_env/bin
 $ source activate
 ```
+Clone the repository to get access to the source code
+```sh
+git clone https://github.com/goodhamgupta/github-scraper.git
+cd github-scraper
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+### NOTE
+---
+- Change the settings for the database in github-scraper/settings.py
+- To collect the static files, execute `python manage.py collectstatic`
+---
 To deactivate the virtual environment use:
 ```sh
 deactivate
@@ -38,11 +51,10 @@ deactivate
  - Integrate Github OAuth
  - More reponsive and user-attractive UI
  - Caching for quicker responses.
+ - Ansible for hassle-free deployment
 
 License
 ----
 
 **Free Software, Hell Yeah!**
-
-
 
