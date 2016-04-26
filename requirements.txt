@@ -85,7 +85,6 @@ PyYAML==3.11
 reportlab==3.2.0
 requests==2.7.0
 rsa==3.3
-showme==1.0.0.dev20160316
 simplegeneric==0.8.1
 six==1.10.0
 sqlparse==0.1.19
