@@ -2,10 +2,8 @@
 {% block content %}
 
 <script>
-    var $_POST = <?php echo json_encode($_POST); ?>;
-    console.log($_POST);
     function search_function(){
-        //var repo_url = document.getElementById("search_field").value;
+        var repo_url = document.getElementById("search_field").value;
         //console.log(repo_url);
         var host = window.location.origin;
         console.log(host);
@@ -45,5 +43,6 @@
 	</div>
     </center>
 </div>
+
 
 {% endblock %}

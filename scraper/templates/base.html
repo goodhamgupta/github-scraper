@@ -36,6 +36,19 @@
             </div><!-- /.container-fluid -->
     </nav>
     {%block content %} {% endblock %}
+
+    {% if messages %}
+    {% for msg in messages %}
+          <script>
+            swal({
+                      title: "Oops!",
+                      type: "error",
+                      text: "{{ msg.message }}",
+                      confirmButtonText: "Okay"
+                      })
+         </script>
+    {% endfor %}
+    {% endif %}
 </body>
 
 

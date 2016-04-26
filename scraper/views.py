@@ -14,7 +14,7 @@ import logging
 import requests
 import re
 from datetime import datetime,timedelta
-
+from django.contrib import messages
 
 from django.template import RequestContext
 #class ScraperViewSet(viewsets.ViewSet):
@@ -41,6 +41,7 @@ def results(request,url):
             user = user_repo.split("/",2)[0]
             repo = user_repo.split("/",2)[1]
         except:
+            messages.add_message(request._request,messages.INFO,"Invalid URL/Repo does not exist")
             return redirect("/search")
         r = requests.get("https://api.github.com/repos/"+str(user)+"/"+str(repo),headers=headers)
         data = r.json()
@@ -79,10 +80,11 @@ def login(request):
         print "Inside"
         print request.body
         print request.data
-        return redirect('/search/')
+        return redirect('/search')
 
 
 def logout(request):
     if request.method == 'GET':
         #del request.session['user']
+        messages.add_message(request,messages.INFO,"Logout Successful")
         return redirect("/login/")

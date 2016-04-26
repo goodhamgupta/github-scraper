@@ -29,15 +29,17 @@
                     <a href="#" class="text-center new-account">Create an account </a>
                 </div>
             </div>
-            {% if data %}
-            <script>
-                swal({
-                      title: "Information",
-                      type: "info",
-                      text: "Logout Successful!",
-                      confirmButtonText: "Okay"
-                      })
-            </script>
+            {% if messages %}
+                {% for msg in messages %}
+                      <script>
+                        swal({
+                                  title: "Bye!",
+                                  type: "info",
+                                  text: "{{ msg.message }}",
+                                  confirmButtonText: "Okay"
+                                  })
+                     </script>
+                {% endfor %}
             {% endif %}
 
 </body>
