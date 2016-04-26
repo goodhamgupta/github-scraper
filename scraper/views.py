@@ -54,11 +54,13 @@ def results(request,url):
             one_day_back = datetime.now()-timedelta(hours=24)
             issues_24_url = "https://api.github.com/repos/"+str(user)+"/"+str(repo)+"/issues?since="+str(one_day_back)+"&per_page=10000"
             print issues_24_url
-            r = requests.get(issues_24_url)
+            request.session['24hr_url'] = issues_24_url
+            r = requests.get(issues_24_url,headers=headers)
             issues_day_count = len(r.json())
 
             one_week_back = datetime.now()-timedelta(hours=168)
             one_week_url = "https://api.github.com/repos/"+str(user)+"/"+str(repo)+"/issues?since="+str(one_week_back)+"&per_page=10000"
+            request.session['one_week_url'] = one_week_url
             r = requests.get(one_week_url,headers=headers)
             issues_week_count = len(r.json())
             data = {"open_issues":issues_open,"24hr_old":issues_day_count,"week_old":issues_week_count,"older":issues_open-issues_week_count}
@@ -67,7 +69,23 @@ def results(request,url):
         else:
             return redirect("/search")
 
-
+@api_view(['GET'])
+def details(request,id):
+    print id
+    if int(id) == 2:
+        print "inside"
+        url = request.session['24hr_url']
+        r = requests.get(url)
+        data = r.json()
+        print url
+        return render(request,"list_issues.html",{"data":data})
+    elif int(id) == 3:
+        url = request.session['one_week_url']
+        r = requests.get(url)
+        data = r.json()
+        return render(request,"list_issues.html",{"data":data})
+    else:
+        pass
 #class LoginViewSet(viewsets.ViewSet):
 @api_view(['GET','POST'])
 def login(request):
