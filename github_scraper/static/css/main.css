@@ -73,3 +73,8 @@
     display: block;
     margin-top: 10px;
 }
+
+.table th,td,tr
+{
+    text-align: center;
+}
