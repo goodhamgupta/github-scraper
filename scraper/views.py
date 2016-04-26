@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 
@@ -18,31 +18,43 @@ from datetime import datetime,timedelta
 
 
 #class ScraperViewSet(viewsets.ViewSet):
-@api_view(['GET','POST'])
+
+def login_check(request):
+    try:
+        user = request.session["user"]
+    except:
+        return redirect(request,"/login")
+        #return render(request,"login.html")
+
+
+@api_view(['GET'])
 def search(request):
     if request.method == 'GET':
+        #request.session["user"] = "test"
+        #print request.session["user"]
         return render(request,"search_page.html")
 
+@api_view(['GET','POST'])
+def results(request,url):
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+
         headers = {"Accept": "application/vnd.github.v3+json"}
         url = "https://www.github.com/saltstack/salt"
-
+        #url = request.POST.post("url")
+        print "URL",url
         #repo_name = re.search('.github.com/(.+?)/*$',url).group()
         user_repo = url.split("github.com/",1)[1]
         user = user_repo.split("/",2)[0]
         repo = user_repo.split("/",2)[1]
 
         r = requests.get("https://api.github.com/repos/"+str(user)+"/"+str(repo),headers=headers)
-
         data = r.json()
-        flag=0
         if r.status_code == 200:
             logging.info("Successful")
             for key,value in data.iteritems():
                     if key == "open_issues_count":
-                        issues_open = value
-
+                        issues_open= value
 
         one_day_back = datetime.now()-timedelta(hours=24)
         issues_24_url = "https://api.github.com/repos/"+str(user)+"/"+str(repo)+"/issues?since="+str(one_day_back)+"&per_page=10000"
@@ -51,10 +63,11 @@ def search(request):
         issues_day_count = len(r.json())
 
         one_week_back = datetime.now()-timedelta(hours=168)
-        one_week_url = issues_24_url = "https://api.github.com/repos/"+str(user)+"/"+str(repo)+"/issues?since="+str(one_week_back)+"&per_page=10000"
+        one_week_url = "https://api.github.com/repos/"+str(user)+"/"+str(repo)+"/issues?since="+str(one_week_back)+"&per_page=10000"
         r = requests.get(one_week_url,headers=headers)
         issues_week_count = len(r.json())
-        return Response({"status":r.status_code,"data":{"open issues":issues_open,"1 day old":issues_day_count,"week old":issues_week_count,"Older":issues_open-issues_week_count}})
+        data = ({"open issues":issues_open,"24hr_old":issues_day_count,"week_old":issues_week_count,"older":issues_open-issues_week_count})
+        return render(request,"results.html",{"data":data})
 
 
 #class LoginViewSet(viewsets.ViewSet):
@@ -69,8 +82,4 @@ def login(request):
         print "Inside"
         print request.body
         print request.data
-        return redirect('/search')
-def post(request):
-    print "Hello"
-    print request.body
-    print request.POST
+        return redirect('/search/')

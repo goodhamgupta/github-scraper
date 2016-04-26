@@ -6,8 +6,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/css/search_page.css" type="text/css">"
+    <script src="/static/js/sweetalert.min.js"></script>
+    <script src="/static/js/dataTables.bootstrap.min.js"></script>
+    <script src="/static/js/dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/sweetalert.css">
 </head>
-<body>
+<body style="background-image:url(/static/images/background.jpg">
+    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/ui/">Home<span class="sr-only">(current)</span> </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="font-size:20px">
+                            <a id="profilebutton" href="/ui/userprofile/"><span class="glyphicon glyphicon-user" aria-hidden="true" style="padding:2px"></span></a>
+                        </li>
+                        <li style="font-size:20px"><a id="logout" href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true" style="padding:2px"></span></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+    </nav>
     {%block content %} {% endblock %}
 </body>
+
+
 </html>

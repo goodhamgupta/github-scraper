@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Issues</th>
+                <th>Count</th>
+                <th>Check'em out</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Number of open Issues</td>
+                <td>{{ data }}</td>
+                <td><button class="btn btn-default btn-success">Click Me!</button></td>
+            </tr>
+            <tr>
+                <td>Number of issues 24 hours ago</td>
+                <td>{{ data }}</td>
+                <td><button class="btn btn-default btn-success">Click Me!</button></td>
+            </tr>
+            <tr>
+                <td>Number of open issues for 7 days</td>
+                <td>{{ data }}</td>
+                <td><button class="btn btn-default btn-success">Click Me!</button></td>
+            </tr>
+            <tr>
+                <td>Number of open issues for more than 7 days</td>
+                <td>{{ data }}</td>
+                <td><button class="btn btn-default btn-success">Click Me!</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -12,7 +12,8 @@ from scraper import views
 urlpatterns = [
     # ex: /polls/
     url(r'^login/$', views.login, name='index'),
-    url(r'^search/$', views.search, name='searh'),
+    url(r'^search/', views.search, name='search'),
+    url(r'^results(?P<url>\w{0,50})/$',views.results,name='results'),
     # ex: /polls/5/
     ]
 
