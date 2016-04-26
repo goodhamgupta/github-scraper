@@ -84,13 +84,21 @@ WSGI_APPLICATION = 'github_scraper.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'scraper',
+    #     'USER': 'root',
+    #     'PASSWORD':'',
+    #     'HOST':'127.0.0.1',
+    #     'PORT':''
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'scraper',
-        'USER': 'root',
-        'PASSWORD':'',
-        'HOST':'127.0.0.1',
-        'PORT':''
+        'USER': 'test',
+        'PASSWORD': 'test',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
