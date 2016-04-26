@@ -8,8 +8,8 @@
     console.log(data);
     console.log(data["open_issues"]);
     document.getElementById('open_issues').innerHTML =data["open_issues"] ;
-    document.getElementById('twentyfour_hour_issues').innerHTML =data["24hr_issues"]
-    document.getElementById('week_old_issues').innerHTML =data["week_older"]
+    document.getElementById('twentyfour_hour_issues').innerHTML =data["24hr_old"]
+    document.getElementById('week_old_issues').innerHTML =data["week_old"]
     document.getElementById('older_issues').innerHTML =data["older"]
 } );
 </script>
@@ -22,7 +22,7 @@
                 <th>Check'em out</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="font-color:#FF0000">
             <tr>
                 <td>Total open Issues</td>
                 <td id="open_issues"></td>

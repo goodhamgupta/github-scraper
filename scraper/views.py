@@ -19,26 +19,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 #class ScraperViewSet(viewsets.ViewSet):
 
-def login_user(request):
-    logout(request)
-    username = password = ''
-    if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect('/search')
-    return redirect(request,'/login')
 
 
+#@login_user
 @api_view(['GET'])
 def search(request):
     if request.method == 'GET':
-        #request.session["user"] = "test"
-        #print request.session["user"]
         return render(request,"search_page.html")
 
 @api_view(['GET','POST'])
@@ -73,7 +59,7 @@ def results(request,url):
         one_week_url = "https://api.github.com/repos/"+str(user)+"/"+str(repo)+"/issues?since="+str(one_week_back)+"&per_page=10000"
         r = requests.get(one_week_url,headers=headers)
         issues_week_count = len(r.json())
-        data = {"open issues":issues_open,"24hr_old":issues_day_count,"week_old":issues_week_count,"older":issues_open-issues_week_count}
+        data = {"open_issues":issues_open,"24hr_old":issues_day_count,"week_old":issues_week_count,"older":issues_open-issues_week_count}
         print data
         return render(request,"results.html",{"data":data})
 
