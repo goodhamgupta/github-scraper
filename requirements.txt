@@ -43,6 +43,7 @@ flask-mongoengine==0.7.1
 Flask-Script==2.0.5
 Flask-WTF==0.11
 geopy==1.11.0
+gunicorn==19.4.5
 httplib2==0.9
 inflect==0.2.5
 ipython==4.0.0
