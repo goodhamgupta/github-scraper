@@ -1,1 +1,2 @@
-web: gunicorn
+web: gunicorn github_scraper.wsgi --log-file -
+
