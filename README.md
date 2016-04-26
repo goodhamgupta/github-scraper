@@ -29,11 +29,12 @@ $ source activate
 ```
 Clone the repository to get access to the source code
 ```sh
-git clone https://github.com/goodhamgupta/github-scraper.git
-cd github-scraper
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+$ git clone https://github.com/goodhamgupta/github-scraper.git
+$ cd github-scraper
+$ pip install -r requirements.txt
+$ python manage.py makemigrations
+$ python manage.py migrate
+$ python manage.py runserver
 ```
 ### NOTE
 ---
