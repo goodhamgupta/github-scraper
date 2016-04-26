@@ -86,7 +86,8 @@ def details(request,id):
         return render(request,"list_issues.html",{"data":data})
     else:
         pass
-#class LoginViewSet(viewsets.ViewSet):
+
+
 @api_view(['GET','POST'])
 def login(request):
     if request.method == "GET":
@@ -95,14 +96,20 @@ def login(request):
         '''
         Perform authentication here
         '''
-        print "Inside"
-        print request.body
-        print request.data
-        return redirect('/search')
+        uname = request.POST.get("username").strip()
+        passwd = request.POST.get("password").strip()
+        if uname=="admin" and passwd=="admin":
+            request.session['user'] = uname
+            print request.session['user']
+            return redirect('/search')
+        else:
+            messages.add_message(request._request,messages.INFO,"ERROR! Invalid Credentials")
+            return redirect("/login/")
 
 
 def logout(request):
     if request.method == 'GET':
-        #del request.session['user']
+        print request.session
+        del request.session["user"]
         messages.add_message(request,messages.INFO,"Logout Successful")
         return redirect("/login/")

@@ -20,9 +20,8 @@
                     <div class="account-wall">
                         <img class="profile-img" src="/static/images/octocat.png" alt="Octocat Image">
                         <form class="form-signin" method="post" id="login_form" action="/login/">
-                            {% csrf_token %}
-                            <input type="text" class="form-control" placeholder="Email" required autofocus id="username">
-                            <input type="password" class="form-control" placeholder="Password" required id="password">
+                            <input type="text" class="form-control" placeholder="Email" required autofocus id="username" name="username">
+                            <input type="password" class="form-control" placeholder="Password" required id="password" name="password">
                             <button class="btn btn-success btn-lg btn-primary btn-block" type="submit" value="submit">Sign in</button>
                         </form>
                     </div>
@@ -33,7 +32,7 @@
                 {% for msg in messages %}
                       <script>
                         swal({
-                                  title: "Bye!",
+                                  title: "INFO!",
                                   type: "info",
                                   text: "{{ msg.message }}",
                                   confirmButtonText: "Okay"
