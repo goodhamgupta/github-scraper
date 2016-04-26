@@ -123,8 +123,7 @@ def details(request,id):
         r = requests.get(url)
         data = r.json()
         return render(request,"list_issues.html",{"data":data})
-    else:
-        pass
+
 
 
 def logout(request):

@@ -20,6 +20,16 @@
         var url = host+"/details/"+id.toString();
         window.location.href = url;
     }
+    function fake_button(){
+
+            swal({
+                      title: "Oops!",
+                      type: "error",
+                      text: "Sorry! Data has not been populated for this field",
+                      confirmButtonText: "Okay"
+                      })
+
+    }
 
 </script>
 
@@ -35,7 +45,7 @@
             <tr>
                 <td>Total open Issues</td>
                 <td id="open_issues"></td>
-                <td><button class="btn btn-lg btn-default btn-success" onclick="details_func(1)">Click Me!</button></td>
+                <td><button class="btn btn-lg btn-default btn-danger" onclick="fake_button()">Click Me!</button></td>
             </tr>
             <tr>
                 <td>Issues in last 24 hours</td>
@@ -50,7 +60,7 @@
             <tr>
                 <td>Issues older than a week</td>
                 <td id="older_issues"></td>
-                <td><button class="btn btn-lg btn-default btn-success" onclick="details_func(4)">Click Me!</button></td>
+                <td><button class="btn btn-lg btn-default btn-danger" onclick="fake_button()">Click Me!</button></td>
             </tr>
         </tbody>
     </table>
