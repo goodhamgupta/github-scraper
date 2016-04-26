@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- **************************************************** -->
+<!--Defines the search page where the user will enter the url for the repo-->
+<!-- **************************************************** -->
 <script>
     function search_function(){
         var repo_url = document.getElementById("search_field").value;
@@ -9,18 +11,6 @@
         console.log(host);
         var url = host+"/results?url="+repo_url;
         window.location.href = url;
-        //var url = host+"/search?url="+repo_url;
-        console.log(url);
-        //$.ajax(
-        //{
-         //   url: url,
-          //  type: 'GET',
-           // error: function () {
-            //    alert("API is Down")
-            //},
-            //success: func
-       // }
-    //);
     }
     function func(data){
         console.log(data[1]);
