@@ -7,6 +7,8 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/css/main.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="/static/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/sweetalert.css">
     <script src="/static/js/main.js"></script>
 </head>
 
@@ -27,6 +29,16 @@
                     <a href="#" class="text-center new-account">Create an account </a>
                 </div>
             </div>
-        </div>
+            {% if data %}
+            <script>
+                swal({
+                      title: "Information",
+                      type: "info",
+                      text: "Logout Successful!",
+                      confirmButtonText: "Okay"
+                      })
+            </script>
+            {% endif %}
+
 </body>
 </html>
