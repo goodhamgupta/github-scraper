@@ -36,6 +36,18 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
 ```
+Configuration for PostgreSQL
+```sh
+$ sudo apt-get update
+$ sudo apt-get install postgresql postgresql-contrib
+$ sudo -i -u postgres
+$ CREATE USER test WITH PASSWORD 'test';
+$ createdb scraper
+$ psql -u test -d postgres
+$ \conninfo
+$ exit
+```
+
 ### NOTE
 ---
 - Change the settings for the database in github-scraper/settings.py
