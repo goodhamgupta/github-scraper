@@ -12,6 +12,11 @@ Scrape-Hub uses the following:-
 * [PostgreSQL] - Faster database access
 * [jQuery and js] - duh
 
+###Login Credentials
+```
+Username: admin
+Password: admin
+```
 
 ### Installation
 
