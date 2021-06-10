@@ -20,7 +20,7 @@ colorama==0.3.3
 configobj==5.0.6
 decorator==4.0.4
 diff-match-patch==20121119
-Django==1.8
+Django==2.2.24
 django-annoying==0.8.4
 django-autoslug==1.7.2
 django-celery==3.1.16
