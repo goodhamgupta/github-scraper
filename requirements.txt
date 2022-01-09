@@ -76,7 +76,7 @@ ptyprocess==0.5
 py-bcrypt==0.4
 pyasn1==0.1.9
 pycparser==2.14
-Pygments==2.1
+Pygments==2.7.4
 pymongo==3.0.3
 PyMySQL==0.7.1
 python-dateutil==2.4.2
