@@ -64,7 +64,7 @@ mycli==1.4.0
 MySQL-python==1.2.5
 num2words==0.5.3
 numpy==1.11.0
-openpyxl==2.3.0
+openpyxl==2.4.2
 path.py==8.1.2
 pbr==1.8.1
 pexpect==4.0.1
